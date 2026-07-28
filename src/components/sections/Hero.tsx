@@ -187,28 +187,107 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── RIGHT: photo ── */}
+          {/* ── RIGHT: photo card ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             className="order-1 lg:order-2 flex-shrink-0"
           >
-            <div className="relative">
-              {/* corner glow accents */}
-              <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full opacity-30 blur-2xl pointer-events-none"
+            <div className="relative group">
+
+              {/* bg glow blobs */}
+              <div className="absolute -top-8 -right-8 w-44 h-44 rounded-full opacity-20 blur-3xl pointer-events-none"
                 style={{ background: "#00f5ff" }} />
-              <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-full opacity-20 blur-2xl pointer-events-none"
+              <div className="absolute -bottom-8 -left-8 w-44 h-44 rounded-full opacity-15 blur-3xl pointer-events-none"
                 style={{ background: "#a855f7" }} />
-              {/* glowing border frame */}
-              <div className="absolute -inset-[3px] rounded-2xl pointer-events-none"
-                style={{ background: "linear-gradient(135deg, #00f5ff66, #a855f766, #f472b644)", borderRadius: "18px" }} />
-              {/* photo */}
-              <div className="relative w-72 h-80 sm:w-80 sm:h-[22rem] lg:w-96 lg:h-[26rem] rounded-2xl overflow-hidden"
-                style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
-                <Image src={personal.avatar} alt={personal.name} fill
+
+              {/* outer slow-rotating dashed ring — cyan */}
+              <div className="absolute -inset-6 rounded-3xl pointer-events-none"
+                style={{
+                  border: "1.5px dashed rgba(0,245,255,0.20)",
+                  borderRadius: "28px",
+                  animation: "dashSpin 18s linear infinite",
+                }} />
+
+              {/* inner counter-rotating dashed ring — purple */}
+              <div className="absolute -inset-3 rounded-2xl pointer-events-none"
+                style={{
+                  border: "1px dashed rgba(168,85,247,0.18)",
+                  borderRadius: "22px",
+                  animation: "dashSpin 28s linear infinite reverse",
+                }} />
+
+              {/* solid gradient border */}
+              <div className="absolute -inset-[2px] rounded-2xl pointer-events-none"
+                style={{
+                  background: "linear-gradient(135deg, #00f5ff55, #a855f744, #f472b633)",
+                  borderRadius: "18px",
+                }} />
+
+              {/* ── card ── */}
+              <div
+                className="relative w-72 h-80 sm:w-80 sm:h-[22rem] lg:w-96 lg:h-[26rem] rounded-2xl overflow-hidden cursor-default"
+                style={{ border: "1px solid rgba(255,255,255,0.07)" }}
+              >
+                {/* photo */}
+                <Image
+                  src={personal.avatar}
+                  alt={personal.name}
+                  fill
                   sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
-                  className="object-cover object-top" priority />
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  priority
+                />
+
+                {/* subtle grid overlay */}
+                <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
+                  style={{
+                    backgroundImage: "linear-gradient(rgba(0,245,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.8) 1px, transparent 1px)",
+                    backgroundSize: "32px 32px",
+                  }} />
+
+                {/* persistent dark gradient at bottom */}
+                <div className="absolute bottom-0 inset-x-0 h-36 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(3,7,18,0.92) 0%, rgba(3,7,18,0.5) 60%, transparent 100%)" }} />
+
+                {/* hover overlay — extra darken */}
+                <div className="absolute inset-0 bg-[#030712]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                {/* bottom content — slides up on hover */}
+                <div className="absolute bottom-0 inset-x-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                  <div className="flex items-end justify-between gap-2">
+
+                    {/* left: name + role */}
+                    <div>
+                      <p className="text-white font-black text-lg leading-tight"
+                        style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                        {personal.name}
+                      </p>
+                      <p className="text-xs font-semibold tracking-[0.18em] uppercase mt-0.5"
+                        style={{ color: "#00f5ff", fontFamily: "var(--font-fira-code)" }}>
+                        {personal.role}
+                      </p>
+                    </div>
+
+                    {/* right: level badge */}
+                    <div className="flex flex-col items-end flex-shrink-0">
+                      <span className="text-slate-400 text-[10px] font-semibold tracking-widest uppercase"
+                        style={{ fontFamily: "var(--font-fira-code)" }}>
+                        Lv.
+                      </span>
+                      <span className="text-white font-black text-xl leading-none"
+                        style={{ fontFamily: "var(--font-space-grotesk)" }}>
+                        23
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* thin accent line */}
+                  <div className="mt-3 h-px w-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                    style={{ background: "linear-gradient(90deg, #00f5ff, #a855f7, transparent)" }} />
+                </div>
               </div>
+
             </div>
           </motion.div>
 
@@ -227,6 +306,7 @@ export default function Hero() {
       </motion.div>
 
 
+      <style>{`@keyframes dashSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
     </section>
   );
 }

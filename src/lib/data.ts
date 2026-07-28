@@ -2,7 +2,7 @@
 
 export const personal = {
   name: "Rajesh Anuragi",
-  role: "Fullstack Developer",
+  role: "Software Developer",
   taglines: [
     "Fullstack Developer",
     "UI Developer",
