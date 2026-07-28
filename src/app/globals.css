@@ -1,0 +1,237 @@
+@import "tailwindcss";
+/* Fonts are self-hosted via next/font/google in layout.tsx — no external @import needed */
+
+/* ─── Design Tokens ────────────────────────────────────────────── */
+@theme inline {
+  /* Base */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Brand palette */
+  --color-neon-cyan:    #00f5ff;
+  --color-neon-purple:  #a855f7;
+  --color-neon-pink:    #f472b6;
+  --color-neon-green:   #4ade80;
+
+  /* Surface */
+  --color-glass-bg:     rgba(255,255,255,0.04);
+  --color-glass-border: rgba(255,255,255,0.10);
+
+  /* Dark backgrounds */
+  --color-dark-950: #030712;
+  --color-dark-900: #0a0f1e;
+  --color-dark-800: #0f172a;
+  --color-dark-700: #1e293b;
+
+  /* Fonts */
+  --font-sans:  'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono:  'Fira Code', monospace;
+}
+
+/* ─── CSS Variables ────────────────────────────────────────────── */
+:root {
+  --background: #030712;
+  --foreground: #e2e8f0;
+
+  /* Glow helpers */
+  --glow-cyan:   0 0 20px rgba(0,245,255,0.35), 0 0 60px rgba(0,245,255,0.15);
+  --glow-purple: 0 0 20px rgba(168,85,247,0.35), 0 0 60px rgba(168,85,247,0.15);
+  --glow-pink:   0 0 20px rgba(244,114,182,0.35), 0 0 60px rgba(244,114,182,0.15);
+
+  /* Glassmorphism */
+  --glass-bg:      rgba(255,255,255,0.04);
+  --glass-border:  rgba(255,255,255,0.10);
+  --glass-blur:    backdrop-filter: blur(16px);
+}
+
+/* ─── Reset / Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0f1e; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f5ff, #a855f7);
+  border-radius: 3px;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(0,245,255,0.25);
+  color: #fff;
+}
+
+/* ─── Utility classes ───────────────────────────────────────────── */
+
+/* Glass card */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-hover {
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-hover:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(0,245,255,0.30);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Gradient text */
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #00f5ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-purple {
+  background: linear-gradient(135deg, #a855f7, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon border */
+.neon-border-cyan  { border: 1px solid rgba(0,245,255,0.40); }
+.neon-border-purple { border: 1px solid rgba(168,85,247,0.40); }
+
+/* Glow button */
+.btn-glow-cyan {
+  background: linear-gradient(135deg, #00f5ff22, #a855f722);
+  border: 1px solid rgba(0,245,255,0.50);
+  color: #00f5ff;
+  transition: all 0.3s ease;
+}
+.btn-glow-cyan:hover {
+  background: linear-gradient(135deg, #00f5ff33, #a855f733);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-glow-purple {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  border: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.btn-glow-purple:hover {
+  box-shadow: var(--glow-purple);
+  transform: translateY(-2px);
+}
+
+/* Section heading accent line — centred when used on a centred inline-block heading */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 8px auto 0;
+  background: linear-gradient(90deg, #00f5ff, #a855f7);
+  border-radius: 2px;
+}
+
+/* Animated gradient border */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(0,245,255,0.4); }
+  50%       { border-color: rgba(168,85,247,0.4); }
+}
+.animated-border { animation: borderGlow 3s ease-in-out infinite; }
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+.float { animation: float 4s ease-in-out infinite; }
+
+/* Particle dot grid background */
+.dot-grid {
+  background-image:
+    radial-gradient(rgba(0,245,255,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,245,255,0.3); }
+  50%       { box-shadow: 0 0 30px rgba(0,245,255,0.6), 0 0 60px rgba(168,85,247,0.3); }
+}
+.pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+
+/* Skill bar fill */
+@keyframes skillFill {
+  from { width: 0; }
+}
+
+/* Gradient mesh overlay */
+.mesh-gradient {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(0,245,255,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(168,85,247,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(244,114,182,0.04) 0%, transparent 60%);
+}
+
+/* Timeline line */
+.timeline-line {
+  position: relative;
+}
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #00f5ff, #a855f7, #f472b6);
+  transform: translateX(-50%);
+}
+
+/* Project card shine sweep */
+@keyframes shine {
+  0%   { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
+}
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  transform: translateX(-100%) skewX(-12deg);
+  transition: none;
+}
+.card-shine:hover::after {
+  animation: shine 0.6s ease forwards;
+}
+
+/* Noise texture overlay */
+.noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.025;
+}
