@@ -23,7 +23,7 @@ export const personal = {
 };
 
 export const stats = [
-  { value: "2+", label: "Years Experience" },
+  { value: "3+", label: "Years Experience" },
   { value: "13+", label: "Projects Shipped" },
   { value: "3",  label: "Companies" },
   { value: "∞",  label: "Lines of Code" },
