@@ -85,14 +85,14 @@ export default function Hero() {
           <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
 
             {/* badge */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-8 border border-cyan-400/20 bg-cyan-400/[0.06]"
             >
               <Sparkles size={13} className="text-cyan-400" />
-              <span className="text-slate-300">Available for new opportunities</span>
+              <span className="text-slate-300">A</span>
               <span className="w-2 h-2 rounded-full bg-green-400 pulse-glow" />
-            </motion.div>
+            </motion.div> */}
 
             {/* greeting */}
             <motion.p
@@ -133,7 +133,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
               className="text-slate-400 leading-relaxed max-w-lg mb-9 mx-auto lg:mx-0"
             >
-              {personal.bio}
+              Fullstack developer and CS student — I build responsive UIs, REST APIs, and automation
+              tools. Currently studying Information Sciences at Azim Premji University while working
+              part-time as a Fullstack Developer.
             </motion.p>
 
             {/* CTAs */}
