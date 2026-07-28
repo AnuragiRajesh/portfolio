@@ -25,7 +25,7 @@ export const personal = {
 export const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "13+", label: "Projects Shipped" },
-  { value: "3",  label: "Companies" },
+  { value: "3",   label: "Roles" },
   { value: "∞",  label: "Lines of Code" },
 ];
 
