@@ -207,10 +207,10 @@ export default function Contact() {
             <div className="glass rounded-2xl p-5 border border-white/10 mb-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400 pulse-glow" />
-                <span className="text-green-400 text-sm font-semibold">Available for work</span>
+                <span className="text-green-400 text-sm font-semibold">Looking for someone to work with?</span>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Looking for fullstack, backend, or automation roles. Open to remote, hybrid, and on-site.
+                Consider me for fullstack, backend, or automation roles.
               </p>
             </div>
 
