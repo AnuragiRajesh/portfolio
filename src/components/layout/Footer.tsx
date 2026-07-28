@@ -102,7 +102,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm flex items-center gap-1.5">
-            Built with <Heart size={13} className="text-pink-500 fill-pink-500" /> using Next.js &amp; Tailwind CSS
+            Sarjapura, Banglore, Karnataka - India
           </p>
           <p className="text-slate-600 text-sm">
             © {new Date().getFullYear()} {personal.name}. All rights reserved.
