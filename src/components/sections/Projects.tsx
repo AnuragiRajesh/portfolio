@@ -290,8 +290,8 @@ export default function Projects() {
           >
             Projects
           </h2>
-          <p className="text-slate-400 mt-5 max-w-xl mx-auto">
-            A selection of {projects.length} projects spanning fullstack apps, APIs, design systems, and automation tools.
+          <p className="text-slate-400 mt-5 max-w-xl mx-auto text-sm">
+            {projects.length} projects — fullstack apps, APIs, UI tools, and automation scripts.
           </p>
         </motion.div>
 

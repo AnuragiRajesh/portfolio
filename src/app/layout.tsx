@@ -21,13 +21,13 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Ranuragi | Fullstack Developer",
+  title: "Rajesh Anuragi | Fullstack Developer",
   description:
-    "Fullstack Developer with 3+ years of experience building scalable web applications, APIs, and automation systems.",
-  keywords: ["Fullstack Developer", "React", "Node.js", "TypeScript", "Portfolio"],
+    "Fullstack Developer and CS student — building responsive UIs, REST APIs, and automation tools. Currently studying Information Sciences at Azim Premji University.",
+  keywords: ["Rajesh Anuragi", "Fullstack Developer", "React", "Node.js", "TypeScript", "Portfolio", "Bangalore"],
   openGraph: {
-    title: "Ranuragi | Fullstack Developer",
-    description: "Fullstack Developer with 3+ years of experience",
+    title: "Rajesh Anuragi | Fullstack Developer",
+    description: "Fullstack Developer and CS student based in Bangalore",
     type: "website",
   },
 };
