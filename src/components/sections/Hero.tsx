@@ -226,7 +226,7 @@ export default function Hero() {
 
               {/* ── card ── */}
               <div
-                className="relative w-72 h-80 sm:w-80 sm:h-[22rem] lg:w-96 lg:h-[26rem] rounded-2xl overflow-hidden cursor-default"
+                className="relative w-56 h-64 sm:w-64 sm:h-72 lg:w-72 lg:h-80 rounded-2xl overflow-hidden cursor-default"
                 style={{ border: "1px solid rgba(255,255,255,0.07)" }}
               >
                 {/* photo */}
@@ -234,7 +234,7 @@ export default function Hero() {
                   src={personal.avatar}
                   alt={personal.name}
                   fill
-                  sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
+                  sizes="(max-width: 640px) 224px, (max-width: 1024px) 256px, 288px"
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   priority
                 />
