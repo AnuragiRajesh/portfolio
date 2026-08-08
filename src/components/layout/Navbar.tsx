@@ -9,9 +9,15 @@ const navLinks = [
   { label: "About",      href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects",   href: "#projects" },
-  { label: "Skills",     href: "#skills" },
   { label: "Contact",    href: "#contact" },
 ];
+
+// sections to track for active state — skills maps back to about
+const trackIds = ["about", "skills", "experience", "projects", "contact"];
+const sectionToNav: Record<string, string> = {
+  about: "about", skills: "about",
+  experience: "experience", projects: "projects", contact: "contact",
+};
 
 export default function Navbar() {
   const [scrolled,     setScrolled]     = useState(false);
@@ -23,11 +29,11 @@ export default function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sectionIds = navLinks.map((l) => l.href.slice(1));
+      const sectionIds = trackIds;
       let current = "";
       for (const id of sectionIds) {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) current = id;
+        if (el && window.scrollY >= el.offsetTop - 120) current = sectionToNav[id];
       }
       setActiveSection(current);
     };
