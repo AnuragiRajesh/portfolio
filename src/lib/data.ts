@@ -54,25 +54,6 @@ export const experience = [
   {
     id: 1,
     type: "work" as const,
-    company: "Amaranth Medical Analytics",
-    role: "Part-time Fullstack Developer",
-    period: "Dec 2024 – Feb 2026",
-    duration: "~1 yr",
-    location: "Bangalore (Part-time)",
-    description:
-      "Working part-time while attending college, I deliver responsive UIs, implement features, and fix UI issues to improve overall user experience. I use Figma for designing UI components and logos. Over time I learned Conda and built APIs with PostgreSQL database functionality, and wrote helper scripts for efficiently managing datasets and patients within projects — enabling the testing team to work more efficiently.",
-    highlights: [
-      "Built responsive UIs and improved user experience",
-      "Designed UI components and logos using Figma",
-      "Built APIs with PostgreSQL using Conda environment",
-      "Wrote helper scripts for dataset and patient management",
-    ],
-    tech: ["React", "PostgreSQL", "Python", "Figma", "Conda"],
-    color: "#00f5ff",
-  },
-  {
-    id: 2,
-    type: "work" as const,
     company: "One Paper Lane",
     role: "UI Developer",
     period: "Jul 2023 – Dec 2024",
@@ -88,6 +69,25 @@ export const experience = [
     ],
     tech: ["React", "AngularJS", "JavaScript", "REST APIs", "SQL"],
     color: "#a855f7",
+  },
+  {
+    id: 2,
+    type: "work" as const,
+    company: "Amaranth Medical Analytics",
+    role: "Part-time Fullstack Developer",
+    period: "Dec 2024 – Feb 2026",
+    duration: "~1 yr",
+    location: "Bangalore (Part-time)",
+    description:
+      "Working part-time while attending college, I deliver responsive UIs, implement features, and fix UI issues to improve overall user experience. I use Figma for designing UI components and logos. Over time I learned Conda and built APIs with PostgreSQL database functionality, and wrote helper scripts for efficiently managing datasets and patients within projects — enabling the testing team to work more efficiently.",
+    highlights: [
+      "Built responsive UIs and improved user experience",
+      "Designed UI components and logos using Figma",
+      "Built APIs with PostgreSQL using Conda environment",
+      "Wrote helper scripts for dataset and patient management",
+    ],
+    tech: ["React", "PostgreSQL", "Python", "Figma", "Conda"],
+    color: "#00f5ff",
   },
   {
     id: 3,
