@@ -19,7 +19,7 @@ export const personal = {
   resume: "/assets/Rajesh Anuragi.pdf",
   location: "Bangalore, India",
   availability: "Open to opportunities",
-  avatar: "/assets/profile.jpeg",
+  avatar: "/assets/profile.png",
 };
 
 export const stats = [
